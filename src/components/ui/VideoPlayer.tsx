@@ -222,16 +222,16 @@ export function VideoPlayer({
   return (
     <figure
       ref={containerRef}
-      className={`relative overflow-hidden rounded-xl bg-mogran-elevated group ${className}`}
+      className={`relative overflow-hidden rounded-xl bg-mogran-secondary group ${className}`}
       aria-label={alt}
       style={{ aspectRatio }}
     >
       {hasError ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-mogran-elevated p-6">
+        <div className="absolute inset-0 flex items-center justify-center bg-mogran-secondary p-6">
           <div className="text-center max-w-xs">
-            <IconAlertCircle size={32} className="text-mogran-dark-text-muted mx-auto mb-2" aria-hidden="true" />
-            <p className="text-mogran-dark-text-secondary text-sm font-medium">No se pudo cargar el video</p>
-            <p className="text-mogran-dark-text-muted text-xs mt-1">Verifica tu conexión e inténtalo de nuevo</p>
+            <IconAlertCircle size={32} className="text-white/40 mx-auto mb-2" aria-hidden="true" />
+            <p className="text-white/70 text-sm font-medium">No se pudo cargar el video</p>
+            <p className="text-white/40 text-xs mt-1">Verifica tu conexión e inténtalo de nuevo</p>
           </div>
         </div>
       ) : (
@@ -268,7 +268,7 @@ export function VideoPlayer({
           {/* Loading spinner — fondo oscuro, se oculta detrás del overlay */}
           {showLoadingOverlay && (
             <div
-              className="absolute inset-0 flex items-center justify-center bg-mogran-dark-elevated pointer-events-none"
+              className="absolute inset-0 flex items-center justify-center bg-white/5 pointer-events-none"
               style={{
                 backgroundImage: poster ? `url(${poster})` : undefined,
                 backgroundSize: 'cover',
@@ -278,8 +278,8 @@ export function VideoPlayer({
             >
               {!poster && (
                 <div className="flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 border-[3px] border-white/20 border-t-mogran-accent rounded-full animate-spin" />
-                  <span className="text-xs text-mogran-dark-text-muted">Cargando video…</span>
+                  <div className="w-12 h-12 border-[3px] border-white/20 border-t-mogran-primary rounded-full animate-spin" />
+                  <span className="text-xs text-white/40">Cargando video…</span>
                 </div>
               )}
             </div>
@@ -288,7 +288,7 @@ export function VideoPlayer({
           {/* Gradient overlay — siempre visible */}
           {showPlayOverlay && (
             <div
-              className={`absolute inset-0 bg-gradient-to-t from-mogran-text/70 via-mogran-text/10 to-transparent transition-opacity duration-300 ${
+              className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent transition-opacity duration-300 ${
                 isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
               }`}
               aria-hidden="true"
@@ -299,10 +299,10 @@ export function VideoPlayer({
           {showPlayOverlay && (
             <button
               onClick={togglePlay}
-              className={`absolute inset-0 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-border-focus rounded-xl transition-all duration-300 ${
+              className={`absolute inset-0 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary rounded-xl transition-all duration-300 ${
                 isPlaying
                   ? 'opacity-0 group-hover:opacity-100 bg-black/40'
-                  : 'opacity-100 bg-mogran-dark-base/85 backdrop-blur-sm'
+                  : 'opacity-100 bg-mogran-secondary/85 backdrop-blur-sm'
               }`}
               aria-label={isPlaying ? `Pausar video: ${alt}` : `Reproducir video: ${alt}`}
               aria-pressed={isPlaying}
@@ -312,8 +312,8 @@ export function VideoPlayer({
                 <span
                   className={`flex items-center justify-center rounded-full shadow-2xl transition-all duration-200 ${
                     isPlaying
-                      ? 'w-14 h-14 md:w-16 md:h-16 bg-white/90 text-mogran-dark-base hover:scale-110'
-                      : 'w-16 h-16 md:w-20 md:h-20 bg-mogran-accent text-black hover:scale-110 shadow-lg shadow-mogran-accent/30'
+                      ? 'w-14 h-14 md:w-16 md:h-16 bg-white/90 text-mogran-secondary hover:scale-110'
+                      : 'w-16 h-16 md:w-20 md:h-20 bg-mogran-primary text-white hover:scale-110 shadow-lg shadow-mogran-primary/30'
                   }`}
                   aria-hidden="true"
                 >
@@ -347,7 +347,7 @@ export function VideoPlayer({
               <div className="flex items-center gap-3">
                 <button
                   onClick={togglePlay}
-                  className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-mogran-dark-base/95 backdrop-blur-sm text-mogran-dark-text hover:bg-mogran-dark-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent transition-colors"
+                  className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-mogran-secondary/95 backdrop-blur-sm text-white hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary transition-colors"
                   aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
                   aria-pressed={isPlaying}
                   type="button"
@@ -359,13 +359,13 @@ export function VideoPlayer({
                   )}
                 </button>
 
-                <div className="flex-1 flex items-center gap-2 text-mogran-dark-text">
+                <div className="flex-1 flex items-center gap-2 text-white">
                   <span className="text-xs font-medium tabular-nums min-w-[3ch]">
                     {formatTime(currentTime)}
                   </span>
 
                   <div
-                    className="flex-1 h-1.5 bg-mogran-dark-text/30 rounded-full overflow-hidden cursor-pointer"
+                    className="flex-1 h-1.5 bg-white/30 rounded-full overflow-hidden cursor-pointer"
                     onClick={handleSeek}
                     onKeyDown={handleSeekKey}
                     role="progressbar"
@@ -376,7 +376,7 @@ export function VideoPlayer({
                     tabIndex={0}
                   >
                     <div
-                      className="h-full bg-mogran-accent rounded-full transition-all duration-100"
+                      className="h-full bg-mogran-primary rounded-full transition-all duration-100"
                       style={{ width: `${progress}%` }}
                       aria-hidden="true"
                     />
@@ -389,7 +389,7 @@ export function VideoPlayer({
 
                 <button
                   onClick={toggleMute}
-                  className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-mogran-dark-base/95 backdrop-blur-sm text-mogran-dark-text hover:bg-mogran-dark-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent transition-colors"
+                  className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-mogran-secondary/95 backdrop-blur-sm text-white hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary transition-colors"
                   aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
                   aria-pressed={!isMuted}
                   type="button"

@@ -53,7 +53,7 @@ export function TabGroup({ tabs, defaultTab, className = '', onChange }: TabGrou
 
   return (
     <div className={className} role="tablist" aria-label="Opciones de contenido" ref={tabListRef}>
-      <div className="flex flex-wrap gap-2 mb-6 border-b border-mogran-dark-border" role="presentation">
+      <div className="flex flex-wrap gap-2 mb-6 border-b border-white/10" role="presentation">
         {tabs.map((tab, index) => (
           <button
             key={tab.id}
@@ -70,10 +70,10 @@ export function TabGroup({ tabs, defaultTab, className = '', onChange }: TabGrou
               onChange?.(tab.id);
             }}
             onKeyDown={(e) => handleKeyDown(e, index)}
-            className={`px-4 py-2.5 text-sm font-medium rounded-t-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-dark-base whitespace-nowrap ${
+            className={`px-4 py-2.5 text-sm font-medium rounded-t-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-secondary whitespace-nowrap ${
               activeTab === tab.id
-                ? 'bg-mogran-accent text-mogran-dark-base shadow-sm font-semibold'
-                : 'text-mogran-dark-text-secondary hover:text-mogran-dark-text hover:bg-mogran-dark-surface border border-mogran-dark-border rounded-lg'
+                ? 'bg-mogran-primary text-white shadow-sm font-semibold border-b-2 border-mogran-primary'
+                : 'text-white/60 hover:text-white hover:bg-white/5 border border-white/10 rounded-lg'
             }`}
           >
             {tab.label}

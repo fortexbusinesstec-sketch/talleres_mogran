@@ -60,9 +60,9 @@ interface AccordionItemComponentProps {
 
 function AccordionItemComponent({ item, isOpen, onToggle, onKeyDown }: AccordionItemComponentProps) {
   return (
-    <details open={isOpen} className="group bg-mogran-dark-surface border border-mogran-dark-border rounded-xl overflow-hidden transition-all duration-300">
+    <details open={isOpen} className="group bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-all duration-300">
       <summary
-        className="flex items-center justify-between w-full px-6 py-4 text-left cursor-pointer list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-dark-base"
+        className="flex items-center justify-between w-full px-6 py-4 text-left cursor-pointer list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-secondary"
         onClick={(e) => {
           e.preventDefault();
           onToggle(item.id);
@@ -71,12 +71,12 @@ function AccordionItemComponent({ item, isOpen, onToggle, onKeyDown }: Accordion
         aria-expanded={isOpen}
         aria-controls={`accordion-content-${item.id}`}
       >
-        <h3 className="text-lg font-semibold text-mogran-dark-text pr-4">{item.question}</h3>
+        <h3 className="text-lg font-semibold text-white pr-4">{item.question}</h3>
         <div className="flex-shrink-0 transition-transform duration-200 group-open:rotate-180">
           {isOpen ? (
-            <IconChevronUp size={24} strokeWidth={2} className="text-mogran-dark-text-secondary" aria-hidden="true" />
+            <IconChevronUp size={24} strokeWidth={2} className="text-mogran-primary" aria-hidden="true" />
           ) : (
-            <IconChevronDown size={24} strokeWidth={2} className="text-mogran-dark-text-secondary" aria-hidden="true" />
+            <IconChevronDown size={24} strokeWidth={2} className="text-white/50 group-hover:text-mogran-primary transition-colors" aria-hidden="true" />
           )}
         </div>
       </summary>
@@ -88,7 +88,7 @@ function AccordionItemComponent({ item, isOpen, onToggle, onKeyDown }: Accordion
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-6 pb-6 text-mogran-dark-text-secondary leading-relaxed animate-fade-in">
+        <div className="px-6 pb-6 text-white/70 leading-relaxed animate-fade-in">
           {item.answer}
         </div>
       </div>
