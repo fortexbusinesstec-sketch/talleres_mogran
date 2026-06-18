@@ -39,8 +39,8 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-mogran-dark-base/80 backdrop-blur-xl border-b border-mogran-dark-border'
-          : 'bg-mogran-dark-base/40 backdrop-blur-sm'
+          ? 'bg-mogran-secondary/90 backdrop-blur-xl border-b border-white/10'
+          : 'bg-mogran-secondary/60 backdrop-blur-sm'
       }`}
       role="banner"
     >
@@ -54,11 +54,11 @@ export function Navbar() {
           <a
             href="#hero"
             onClick={(e) => handleLinkClick(e, '#hero')}
-            className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent rounded-md px-1"
+            className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary rounded-md px-1"
             aria-label="Talleres Mogran - Ir al inicio"
           >
-            <span className="text-lg md:text-xl font-bold text-mogran-dark-text tracking-tight">
-              Talleres <span className="text-mogran-accent">Mogran</span>
+            <span className="text-lg md:text-xl font-bold text-white tracking-tight">
+              Talleres <span className="text-mogran-primary">Mogran</span>
             </span>
           </a>
 
@@ -69,7 +69,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-sm font-medium text-mogran-dark-text-secondary hover:text-mogran-accent transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent rounded-md px-2 py-1"
+                className="text-sm font-medium text-white/70 hover:text-mogran-primary transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary rounded-md px-2 py-1"
               >
                 {link.label}
               </a>
@@ -81,7 +81,7 @@ export function Navbar() {
             <a
               href="#schedule"
               onClick={(e) => handleLinkClick(e, '#schedule')}
-              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-mogran-dark-text bg-transparent border-2 border-mogran-accent rounded-lg hover:bg-mogran-accent hover:text-mogran-dark-base transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-dark-base"
+              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-transparent border-2 border-mogran-primary rounded-lg hover:bg-mogran-primary transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-secondary"
             >
               Ver talleres
             </a>
@@ -90,7 +90,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-mogran-dark-text hover:text-mogran-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent rounded-md"
+            className="md:hidden p-2 text-white hover:text-mogran-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary rounded-md"
             aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
@@ -111,13 +111,13 @@ export function Navbar() {
             isMobileMenuOpen ? 'max-h-96 pb-6' : 'max-h-0'
           }`}
         >
-          <div className="flex flex-col gap-1 pt-4 border-t border-mogran-dark-border">
+          <div className="flex flex-col gap-1 pt-4 border-t border-white/10">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="block px-3 py-3 text-base font-medium text-mogran-dark-text-secondary hover:text-mogran-accent hover:bg-mogran-dark-elevated rounded-md transition-colors duration-200"
+                className="block px-3 py-3 text-base font-medium text-white/70 hover:text-mogran-primary hover:bg-white/5 rounded-md transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -125,7 +125,7 @@ export function Navbar() {
             <a
               href="#schedule"
               onClick={(e) => handleLinkClick(e, '#schedule')}
-              className="mt-2 inline-flex items-center justify-center px-5 py-3 text-sm font-semibold text-mogran-dark-text bg-transparent border-2 border-mogran-accent rounded-lg hover:bg-mogran-accent hover:text-mogran-dark-base transition-all duration-300"
+              className="mt-2 inline-flex items-center justify-center px-5 py-3 text-sm font-semibold text-white bg-transparent border-2 border-mogran-primary rounded-lg hover:bg-mogran-primary transition-all duration-300"
             >
               Ver talleres
             </a>

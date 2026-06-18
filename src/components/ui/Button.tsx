@@ -7,9 +7,9 @@ type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
 
 const variantStyles: Record<Variant, string> = {
-  primary: 'bg-mogran-accent text-mogran-dark-base hover:bg-mogran-cyan shadow-lg shadow-mogran-accent/20',
-  secondary: 'border border-mogran-accent text-mogran-accent hover:bg-mogran-accent/10',
-  ghost: 'text-mogran-dark-text-secondary hover:text-mogran-dark-text hover:bg-mogran-dark-elevated',
+  primary: 'bg-mogran-primary text-white hover:bg-mogran-primary-hover shadow-lg shadow-mogran-primary/20',
+  secondary: 'border-2 border-mogran-secondary text-mogran-secondary hover:bg-mogran-secondary hover:text-white',
+  ghost: 'text-mogran-neutral hover:text-mogran-secondary hover:bg-mogran-tertiary',
 };
 
 const sizeStyles: Record<Size, string> = {
@@ -19,7 +19,7 @@ const sizeStyles: Record<Size, string> = {
 };
 
 const baseStyles =
-  'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-dark-base disabled:opacity-50 disabled:cursor-not-allowed';
+  'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:opacity-50 disabled:cursor-not-allowed';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
