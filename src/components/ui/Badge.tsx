@@ -12,7 +12,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
     const variantStyles = {
       success: 'bg-mogran-primary/10 text-mogran-primary border border-mogran-primary/20',
       primary: 'bg-mogran-primary-subtle text-mogran-primary border border-mogran-primary/20',
-      accent: 'bg-mogran-secondary/10 text-mogran-secondary border border-mogran-secondary/20',
+      accent: 'bg-white/10 text-white border border-white/20',
     };
 
     const sizeStyles = {
