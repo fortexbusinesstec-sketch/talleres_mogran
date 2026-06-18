@@ -57,11 +57,11 @@ export function MethodologyConsole() {
   const currentItem = data[activePhase].items[activeItem];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-mogran-dark-surface/40 p-6 rounded-3xl border border-mogran-dark-border/80 backdrop-blur-sm">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-white/5 p-6 rounded-3xl border border-white/10 backdrop-blur-sm">
 
       {/* COLUMNA 1: Macro-Fases (3 Capas) */}
       <div className="lg:col-span-4 flex flex-col gap-3 justify-center">
-        <span className="text-xs font-bold uppercase tracking-widest text-mogran-dark-text-muted px-2 mb-1">
+        <span className="text-xs font-bold uppercase tracking-widest text-white/40 px-2 mb-1">
           [ 01 / Selecciona Pilar ]
         </span>
         {data.map((phase, idx) => (
@@ -70,20 +70,20 @@ export function MethodologyConsole() {
             onClick={() => setActivePhase(idx)}
             className={`w-full p-5 rounded-2xl border text-left transition-all relative overflow-hidden ${
               activePhase === idx
-                ? 'bg-mogran-dark-surface border-mogran-dark-text-muted shadow-md'
-                : 'bg-transparent border-mogran-dark-border/60 hover:border-mogran-dark-text-muted'
+                ? 'bg-white/5 border-white/20 shadow-md'
+                : 'bg-transparent border-white/10 hover:border-white/30'
             }`}
           >
             {activePhase === idx && (
               <motion.div
                 layoutId="activePhaseIndicator"
-                className="absolute left-0 top-0 bottom-0 w-1.5 bg-mogran-accent"
+                className="absolute left-0 top-0 bottom-0 w-1.5 bg-mogran-primary"
               />
             )}
-            <p className={`text-xs font-mono mb-1 ${activePhase === idx ? 'text-mogran-accent' : 'text-mogran-dark-text-muted'}`}>
+            <p className={`text-xs font-mono mb-1 ${activePhase === idx ? 'text-mogran-primary' : 'text-white/40'}`}>
               PILAR DE ENTRENAMIENTO 0{idx + 1}
             </p>
-            <h3 className={`text-lg font-bold ${activePhase === idx ? 'text-mogran-dark-text' : 'text-mogran-dark-text-secondary'}`}>
+            <h3 className={`text-lg font-bold ${activePhase === idx ? 'text-white' : 'text-white/60'}`}>
               {phase.title}
             </h3>
           </button>
@@ -91,8 +91,8 @@ export function MethodologyConsole() {
       </div>
 
       {/* COLUMNA 2: Sub-Canales Técnicos */}
-      <div className="lg:col-span-3 flex flex-col gap-2 bg-mogran-dark-base/60 p-4 rounded-2xl border border-mogran-dark-border justify-center">
-        <span className="text-xs font-bold uppercase tracking-widest text-mogran-dark-text-muted px-2 mb-1">
+      <div className="lg:col-span-3 flex flex-col gap-2 bg-mogran-secondary/60 p-4 rounded-2xl border border-white/10 justify-center">
+        <span className="text-xs font-bold uppercase tracking-widest text-white/40 px-2 mb-1">
           [ 02 / Parámetro ]
         </span>
         <div className="space-y-1.5 max-h-[320px] overflow-y-auto pr-1">
@@ -102,12 +102,12 @@ export function MethodologyConsole() {
               onClick={() => setActiveItem(idx)}
               className={`w-full flex items-center justify-between px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
                 activeItem === idx
-                  ? 'bg-mogran-accent/10 border-mogran-accent/30 text-mogran-accent'
-                  : 'bg-mogran-dark-surface/40 border-transparent text-mogran-dark-text-secondary hover:text-mogran-dark-text hover:bg-mogran-dark-surface/80'
+                  ? 'bg-mogran-primary/10 border-mogran-primary/30 text-mogran-primary'
+                  : 'bg-white/5 border-transparent text-white/60 hover:text-white hover:bg-white/10'
               }`}
             >
               <span className="truncate">{item.title}</span>
-              <span className={`font-mono text-xs ${activeItem === idx ? 'text-mogran-accent' : 'text-mogran-dark-text-muted'}`}>
+              <span className={`font-mono text-xs ${activeItem === idx ? 'text-mogran-primary' : 'text-white/30'}`}>
                 CH.{item.id.toString().padStart(2, '0')}
               </span>
             </button>
@@ -116,10 +116,10 @@ export function MethodologyConsole() {
       </div>
 
       {/* COLUMNA 3: Monitor de Visualización */}
-      <div className="lg:col-span-5 bg-mogran-dark-base border border-mogran-dark-border rounded-2xl p-8 min-h-[340px] flex flex-col justify-between relative overflow-hidden">
+      <div className="lg:col-span-5 bg-mogran-secondary border border-white/10 rounded-2xl p-8 min-h-[340px] flex flex-col justify-between relative overflow-hidden">
         {/* Trama técnica de fondo */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-30 pointer-events-none" />
-        <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-mogran-dark-text-muted tracking-widest pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-100 pointer-events-none" />
+        <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-white/30 tracking-widest pointer-events-none">
           MOGRAN_OS_V2.6
         </div>
 
@@ -132,23 +132,23 @@ export function MethodologyConsole() {
             transition={{ duration: 0.15 }}
             className="relative z-10 space-y-4 my-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-mogran-dark-surface border border-mogran-dark-border rounded-md font-mono text-xs text-mogran-dark-text-secondary">
-              <span className="w-2 h-2 rounded-full bg-mogran-accent animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-md font-mono text-xs text-white/60">
+              <span className="w-2 h-2 rounded-full bg-mogran-primary animate-pulse" />
               {data[activePhase].subtitle}
             </div>
 
-            <h4 className="text-2xl font-bold tracking-tight text-mogran-dark-text">
+            <h4 className="text-2xl font-bold tracking-tight text-white">
               {currentItem?.title}
             </h4>
 
-            <p className="text-mogran-dark-text-secondary text-base leading-relaxed">
+            <p className="text-white/70 text-base leading-relaxed">
               {currentItem?.desc}
             </p>
           </motion.div>
         </AnimatePresence>
 
         {/* Falso Ecualizador Gráfico Inferior */}
-        <div className="relative z-10 pt-4 border-t border-mogran-dark-border flex items-center gap-1.5 h-6">
+        <div className="relative z-10 pt-4 border-t border-white/10 flex items-center gap-1.5 h-6">
           {[...Array(24)].map((_, i) => (
             <motion.div
               key={i}
@@ -165,7 +165,7 @@ export function MethodologyConsole() {
                 repeat: Infinity,
                 repeatType: 'reverse',
               }}
-              className={`w-1 rounded-full ${i > 18 ? 'bg-mogran-dark-border' : 'bg-mogran-accent/60'}`}
+              className={`w-1 rounded-full ${i > 18 ? 'bg-white/10' : 'bg-mogran-primary/60'}`}
             />
           ))}
         </div>
