@@ -24,7 +24,7 @@ export function HeroSection({ fechaInicioCiclo }: HeroSectionProps) {
   return (
     <section
       id="hero"
-      className="relative bg-mogran-dark-base overflow-hidden min-h-screen flex"
+      className="relative bg-mogran-secondary overflow-hidden min-h-screen flex"
       aria-labelledby="hero-title"
     >
       {/* Background layers */}
@@ -33,7 +33,7 @@ export function HeroSection({ fechaInicioCiclo }: HeroSectionProps) {
 
       {/* Top accent line */}
       <div
-        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-mogran-accent/30 to-transparent"
+        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-mogran-primary/30 to-transparent"
         aria-hidden="true"
       />
 
@@ -43,35 +43,35 @@ export function HeroSection({ fechaInicioCiclo }: HeroSectionProps) {
           <div className="space-y-7 md:space-y-8">
 
             {/* Kicker / Ceja superior */}
-            <h3 className="inline-flex items-center gap-3 text-xs md:text-sm font-semibold text-mogran-dark-text tracking-[0.25em] uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-mogran-accent flex-shrink-0" aria-hidden="true" />
+            <h3 className="inline-flex items-center gap-3 text-xs md:text-sm font-semibold text-white/70 tracking-[0.25em] uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-mogran-primary flex-shrink-0" aria-hidden="true" />
               ESCUELA MOGRAN · 25 AÑOS FORMANDO NUEVAS VOCES
             </h3>
 
             {/* H1 */}
             <h1
               id="hero-title"
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.25] tracking-[-0.02em] text-balance"
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.25] tracking-[-0.01em] text-balance"
             >
-              Talleres de <span className="text-mogran-accent">Oratoria</span> Práctica para <span className="text-mogran-accent">Vencer la Timidez</span> y el Miedo a Hablar en Público
+              Talleres de <span className="text-mogran-primary">Oratoria</span> Práctica para <span className="text-mogran-primary">Vencer la Timidez</span> y el Miedo a Hablar en Público
             </h1>
 
             {/* H2 - Premisa */}
-            <h2 className="text-base md:text-lg text-mogran-dark-text-secondary leading-relaxed max-w-xl">
+            <h2 className="text-base md:text-lg text-white/70 leading-relaxed max-w-xl">
               El único método adaptado para niños, jóvenes y adultos que prefieren{' '}
               <span className="text-white font-semibold">escuchar antes de hablar</span>.
             </h2>
 
             {/* Body */}
-            <p className="text-sm md:text-base text-mogran-dark-text-secondary/80 leading-relaxed max-w-lg">
+            <p className="text-sm md:text-base text-white/60 leading-relaxed max-w-lg">
               Ya sea para participar con seguridad en el colegio, destacar en la universidad o liderar en el ámbito profesional. Te ayudamos a encontrar tu propia voz, perder los nervios y expresarte con confianza — a tu propio ritmo.
             </p>
 
             {/* Date urgency (optional) */}
             {fechaInicioCiclo && (
-              <div className="inline-flex items-center gap-3 px-4 py-3 rounded-lg bg-mogran-dark-elevated/80 border border-mogran-dark-border">
-                <div className="w-1 h-10 bg-mogran-accent rounded-full flex-shrink-0" aria-hidden="true" />
-                <p className="text-sm md:text-base text-mogran-dark-text-secondary">
+              <div className="inline-flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 border border-white/10">
+                <div className="w-1 h-10 bg-mogran-primary rounded-full flex-shrink-0" aria-hidden="true" />
+                <p className="text-sm md:text-base text-white/70">
                   Próximo ciclo inicia el{' '}
                   <strong className="text-white font-semibold">{fechaInicioCiclo}</strong>.
                   Inscripciones abiertas hasta agotar cupos.
@@ -83,12 +83,12 @@ export function HeroSection({ fechaInicioCiclo }: HeroSectionProps) {
             <div className="pt-3">
               <button
                 onClick={() => scrollTo('schedule')}
-                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-bold bg-mogran-accent text-black rounded-xl shadow-lg shadow-mogran-accent/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(115,211,0,0.4)] hover:-translate-y-1 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-dark-base"
+                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-bold bg-mogran-primary text-white rounded-xl shadow-lg shadow-mogran-primary/30 transition-all duration-300 hover:bg-mogran-primary-hover hover:shadow-[0_0_30px_rgba(248,20,67,0.4)] hover:-translate-y-1 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-secondary"
               >
                 <IconArrowRight
                   size={18}
                   strokeWidth={2.5}
-                  className="text-black transition-all duration-300 group-hover:rotate-[360deg] group-hover:scale-110"
+                  className="text-white transition-all duration-300 group-hover:rotate-[360deg] group-hover:scale-110"
                   aria-hidden="true"
                 />
                 Ver Talleres y Promociones Disponibles →
@@ -102,7 +102,7 @@ export function HeroSection({ fechaInicioCiclo }: HeroSectionProps) {
 
             {/* Video container - clean border, no glow */}
             <div className="relative w-full max-w-[280px] md:max-w-xs lg:max-w-sm">
-              <div className="relative rounded-2xl overflow-hidden border border-mogran-accent/20 shadow-xl bg-mogran-dark-elevated">
+              <div className="relative rounded-2xl overflow-hidden border border-mogran-primary/20 shadow-xl bg-white/5">
                 <VideoPlayer
                   src={video.source}
                   alt={video.description}
@@ -125,7 +125,7 @@ export function HeroSection({ fechaInicioCiclo }: HeroSectionProps) {
 
       {/* Bottom gradient fade */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-mogran-dark-base pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-mogran-secondary pointer-events-none"
         aria-hidden="true"
       />
     </section>
