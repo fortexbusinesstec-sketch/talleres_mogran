@@ -59,18 +59,18 @@ const data = {
 export default function AIPage() {
   return (
     <div className="container-section py-16 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold text-mogran-dark-text mb-8">Información estructurada — Talleres Mogran</h1>
+      <h1 className="text-3xl font-bold text-mogran-secondary mb-8">Información estructurada — Talleres Mogran</h1>
 
       <section className="mb-10">
-        <h2 className="text-xl font-semibold text-mogran-accent mb-3">Empresa</h2>
-        <pre className="bg-mogran-dark-surface border border-mogran-dark-border rounded-xl p-6 text-sm text-mogran-dark-text-secondary font-mono leading-relaxed whitespace-pre-wrap">
+        <h2 className="text-xl font-semibold text-mogran-primary mb-3">Empresa</h2>
+        <pre className="bg-mogran-secondary border border-white/10 rounded-xl p-6 text-sm text-white/80 font-mono leading-relaxed whitespace-pre-wrap">
 {JSON.stringify(data, null, 2)}
         </pre>
       </section>
 
       <section className="mb-10">
-        <h2 className="text-xl font-semibold text-mogran-accent mb-3">Resumen para LLM</h2>
-        <div className="bg-mogran-dark-surface border border-mogran-dark-border rounded-xl p-6 text-sm text-mogran-dark-text-secondary leading-relaxed space-y-2">
+        <h2 className="text-xl font-semibold text-mogran-primary mb-3">Resumen para LLM</h2>
+        <div className="bg-mogran-secondary border border-white/10 rounded-xl p-6 text-sm text-white/80 leading-relaxed space-y-2">
           <p>Talleres Mogran es una escuela de oratoria y comunicación ubicada en Lince, Lima, Perú.</p>
           <p>Fundada por Moisés Granados Zuloeta, comunicador y locutor con 25 años de experiencia.</p>
           <p>Ofrece cursos presenciales y virtuales para niños, adolescentes, jóvenes y adultos.</p>

@@ -7,7 +7,7 @@ type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
 
 const variantStyles: Record<Variant, string> = {
-  primary: 'bg-mogran-primary text-white hover:bg-mogran-primary-hover shadow-lg shadow-mogran-primary/20',
+  primary: 'bg-mogran-primary text-white hover:bg-[#D6103A] shadow-lg shadow-mogran-primary/20',
   secondary: 'border-2 border-mogran-secondary text-mogran-secondary hover:bg-mogran-secondary hover:text-white',
   ghost: 'text-mogran-neutral hover:text-mogran-secondary hover:bg-mogran-tertiary',
 };

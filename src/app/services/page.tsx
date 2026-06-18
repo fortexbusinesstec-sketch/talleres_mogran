@@ -16,10 +16,10 @@ export default function ServicesPage() {
   return (
     <div className="pt-8">
       <div className="container-section text-center py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-mogran-dark-text mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-mogran-secondary mb-4">
           Cursos y Talleres de Oratoria
         </h1>
-        <p className="text-lg text-mogran-dark-text-secondary max-w-2xl mx-auto">
+        <p className="text-lg text-mogran-neutral max-w-2xl mx-auto">
           Programas diseñados para cada etapa de la vida. Presencial en Lince o virtual en vivo.
         </p>
       </div>

@@ -83,7 +83,7 @@ export function HeroSection({ fechaInicioCiclo }: HeroSectionProps) {
             <div className="pt-3">
               <button
                 onClick={() => scrollTo('schedule')}
-                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-bold bg-mogran-primary text-white rounded-xl shadow-lg shadow-mogran-primary/30 transition-all duration-300 hover:bg-mogran-primary-hover hover:shadow-[0_0_30px_rgba(248,20,67,0.4)] hover:-translate-y-1 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-secondary"
+                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-bold bg-mogran-primary text-white rounded-xl shadow-lg shadow-mogran-primary/30 transition-all duration-300 hover:bg-[#D6103A] hover:shadow-[0_0_30px_rgba(248,20,67,0.4)] hover:-translate-y-1 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary focus-visible:ring-offset-2 focus-visible:ring-offset-mogran-secondary"
               >
                 <IconArrowRight
                   size={18}
