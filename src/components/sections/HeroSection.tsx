@@ -37,7 +37,7 @@ export function HeroSection({ fechaInicioCiclo }: HeroSectionProps) {
         aria-hidden="true"
       />
 
-      <div className="container-section mx-auto max-w-7xl relative z-10 pt-40 md:pt-48 lg:pt-56 pb-16 md:pb-20 lg:pb-28">
+      <div className="container-section mx-auto max-w-7xl relative z-10 pt-24 md:pt-28 pb-16 md:pb-20 lg:pb-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           {/* Left column - Content */}
           <div className="space-y-7 md:space-y-8">

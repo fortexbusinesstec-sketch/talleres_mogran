@@ -48,7 +48,7 @@ export function VideoPlayer({
   className = '',
   showControls = true,
   showPosterUntilPlay = false,
-  rootMargin = '200px',
+  rootMargin = '500px',
   preload = 'none',
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -123,20 +123,30 @@ export function VideoPlayer({
   }, [isInView, source]);
 
   useEffect(() => {
-    if (!isInView || autoPlay || source.type !== 'mp4') return;
+    if (!isInView || source.type !== 'mp4') return;
     const video = videoRef.current;
     if (video && !video.src) {
       video.src = source.src;
       video.load();
     }
-  }, [isInView, autoPlay, source]);
+  }, [isInView, source]);
 
   useEffect(() => {
-    if (isInView && autoPlay && videoRef.current) {
-      const p = videoRef.current.play();
+    if (!isInView || !autoPlay || !videoRef.current) return;
+    const video = videoRef.current;
+
+    const tryPlay = () => {
+      const p = video.play();
       if (p && typeof p.catch === 'function') {
         p.catch(() => setIsPlaying(false));
       }
+    };
+
+    if (video.readyState >= 3) {
+      tryPlay();
+    } else {
+      video.addEventListener('canplay', tryPlay, { once: true });
+      return () => video.removeEventListener('canplay', tryPlay);
     }
   }, [isInView, autoPlay]);
 

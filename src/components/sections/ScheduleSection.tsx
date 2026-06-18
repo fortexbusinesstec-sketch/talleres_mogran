@@ -208,7 +208,7 @@ export function ScheduleSection() {
                 </div>
                 <p className="text-mogran-dark-text-secondary text-sm pl-6">{horario.hora}</p>
                 {horario.nota && (
-                  <Badge variant="warning" size="sm" className="mt-2 ml-6">
+                  <Badge variant="accent" size="sm" className="mt-2 ml-6">
                     {horario.nota}
                   </Badge>
                 )}
