@@ -69,17 +69,17 @@ export function ProblemSection() {
   const centerLit = animStep >= 0;
 
   return (
-    <section id="problem" className="bg-mogran-dark-base section border-t border-mogran-dark-border/50" aria-labelledby="problem-title">
+    <section id="problem" className="bg-mogran-secondary section border-t border-white/10" aria-labelledby="problem-title">
       <div className="container-section">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2
             id="problem-title"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-mogran-dark-text mb-6 text-balance"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
           >
             Competencias que{' '}
-            <span className="text-mogran-accent">desarrollarás</span>
+            <span className="text-mogran-primary">desarrollarás</span>
           </h2>
-          <p className="text-lg text-mogran-dark-text-secondary leading-relaxed">
+          <p className="text-lg text-white/70 leading-relaxed">
             Un enfoque integral que abarca todas las áreas necesarias para comunicarte con confianza y
             seguridad en cualquier situación.
           </p>
@@ -87,12 +87,12 @@ export function ProblemSection() {
 
         <div className="flex justify-center">
           <div className="w-full max-w-xl">
-            <div className="bg-mogran-dark-elevated/30 p-8 rounded-2xl border border-mogran-dark-border/50">
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
               <div className="relative w-full aspect-square">
                 {/* Central glow */}
                 <motion.div
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(115,211,0,0.1) 0%, transparent 70%)' }}
+                  style={{ background: 'radial-gradient(circle, rgba(248,20,67,0.1) 0%, transparent 70%)' }}
                   animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.7, 0.3] }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                 />
@@ -103,7 +103,7 @@ export function ProblemSection() {
                     <motion.line
                       key={`spoke-${i}`}
                       x1={cx} y1={cy} x2={s.x2} y2={s.y2}
-                      stroke="#73D300"
+                      stroke="#F81443"
                       strokeWidth={1.5}
                       strokeLinecap="round"
                       strokeDasharray={isNodeLit(i) ? 'none' : '2 6'}
@@ -126,7 +126,7 @@ export function ProblemSection() {
                     <motion.path
                       key={`ring-${i}`}
                       d={d}
-                      stroke="#73D300"
+                      stroke="#F81443"
                       strokeWidth={1.2}
                       strokeLinecap="round"
                       strokeDasharray={isRingLit(i) ? 'none' : '2 6'}
@@ -166,22 +166,22 @@ export function ProblemSection() {
                         <motion.div
                           animate={{
                             scale: lit ? 1 : 0.85,
-                            borderColor: lit ? 'rgba(115,211,0,0.6)' : 'rgba(176,184,200,0.15)',
+                            borderColor: lit ? 'rgba(248,20,67,0.6)' : 'rgba(255,255,255,0.1)',
                             boxShadow: lit
-                              ? '0 0 16px rgba(115,211,0,0.25), 0 0 32px rgba(115,211,0,0.1)'
-                              : '0 0 0px rgba(115,211,0,0)',
+                              ? '0 0 16px rgba(248,20,67,0.25), 0 0 32px rgba(248,20,67,0.1)'
+                              : '0 0 0px rgba(248,20,67,0)',
                           }}
                           transition={{ duration: 0.5, ease: 'easeOut' }}
-                          className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-mogran-dark-elevated border-2 flex items-center justify-center shadow-lg"
+                          className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/5 border-2 flex items-center justify-center shadow-lg"
                         >
                           <t.Icon
                             size={18}
-                            className={lit ? 'text-mogran-accent' : 'text-mogran-dark-text-muted'}
+                            className={lit ? 'text-mogran-primary' : 'text-white/30'}
                           />
                         </motion.div>
 
                         <motion.span
-                          animate={{ color: lit ? 'rgb(248,250,252)' : 'rgb(176,184,200)' }}
+                          animate={{ color: lit ? 'rgb(248,250,252)' : 'rgba(255,255,255,0.4)' }}
                           transition={{ duration: 0.4 }}
                           className="text-[clamp(9px,2.5vw,12px)] font-semibold text-center leading-tight whitespace-pre-line"
                         >
@@ -205,20 +205,20 @@ export function ProblemSection() {
                     <motion.div
                       animate={{
                         borderColor: centerLit
-                          ? 'rgba(115,211,0,0.8)'
-                          : 'rgba(115,211,0,0.3)',
+                          ? 'rgba(248,20,67,0.8)'
+                          : 'rgba(248,20,67,0.3)',
                         boxShadow: centerLit
-                          ? '0 0 24px rgba(115,211,0,0.35), 0 0 48px rgba(115,211,0,0.15)'
-                          : '0 0 8px rgba(115,211,0,0.1)',
+                          ? '0 0 24px rgba(248,20,67,0.35), 0 0 48px rgba(248,20,67,0.15)'
+                          : '0 0 8px rgba(248,20,67,0.1)',
                       }}
                       transition={{ duration: 0.6 }}
-                      className="w-[60px] h-[60px] md:w-[80px] md:h-[80px] rounded-full bg-mogran-dark-elevated border-[2.5px] flex items-center justify-center shadow-lg"
+                      className="w-[60px] h-[60px] md:w-[80px] md:h-[80px] rounded-full bg-white/5 border-[2.5px] flex items-center justify-center shadow-lg"
                     >
-                      <IconStar size={24} className="text-mogran-accent" />
+                      <IconStar size={24} className="text-mogran-primary" />
                     </motion.div>
 
                     <motion.span
-                      animate={{ color: centerLit ? 'rgb(115,211,0)' : 'rgb(176,184,200)' }}
+                      animate={{ color: centerLit ? 'rgb(248,20,67)' : 'rgba(255,255,255,0.4)' }}
                       transition={{ duration: 0.4 }}
                       className="text-[clamp(10px,2.5vw,13px)] font-extrabold text-center leading-tight tracking-wider"
                     >
