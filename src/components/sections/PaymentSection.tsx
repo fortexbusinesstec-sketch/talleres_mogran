@@ -75,7 +75,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={copy}
-      className="inline-flex items-center gap-1.5 text-xs font-medium text-mogran-accent hover:text-mogran-cyan transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-accent rounded px-1.5 py-0.5"
+      className="inline-flex items-center gap-1.5 text-xs font-medium text-mogran-primary hover:text-mogran-secondary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-mogran-primary ring-offset-white rounded px-1.5 py-0.5"
       aria-label={`Copiar: ${text}`}
     >
       {copied ? (
@@ -100,46 +100,46 @@ export function PaymentSection() {
       id: item.id,
       label: item.label,
       content: (
-        <div className="bg-mogran-dark-surface border border-mogran-dark-border rounded-2xl p-6 md:p-8">
+        <div className="bg-white border border-mogran-border rounded-2xl p-6 md:p-8">
           {isWallet ? (
             <div className="flex flex-col items-center text-center py-4">
-              <div className="w-16 h-16 rounded-full bg-mogran-dark-elevated border-2 border-mogran-accent/30 flex items-center justify-center mb-4">
-                <IconDeviceMobile size={28} className="text-mogran-accent" />
+              <div className="w-16 h-16 rounded-full bg-mogran-tertiary border-2 border-mogran-primary/30 flex items-center justify-center mb-4">
+                <IconDeviceMobile size={28} className="text-mogran-primary" />
               </div>
-              <h4 className="text-xl font-bold text-mogran-dark-text mb-2">{item.label}</h4>
-              <p className="text-mogran-dark-text-secondary mb-4">{item.holder}</p>
-              <div className="flex items-center gap-3 bg-mogran-dark-elevated/60 rounded-xl px-5 py-3 border border-mogran-dark-border">
-                <span className="text-lg font-mono font-bold text-mogran-dark-text tracking-wider">{(item as WalletItem).number}</span>
+              <h4 className="text-xl font-bold text-mogran-secondary mb-2">{item.label}</h4>
+              <p className="text-mogran-neutral mb-4">{item.holder}</p>
+              <div className="flex items-center gap-3 bg-mogran-tertiary/60 rounded-xl px-5 py-3 border border-mogran-border">
+                <span className="text-lg font-mono font-bold text-mogran-secondary tracking-wider">{(item as WalletItem).number}</span>
                 <CopyButton text={(item as WalletItem).number} />
               </div>
             </div>
           ) : (
             <div className="space-y-5">
-              <div className="flex items-center gap-3 pb-4 border-b border-mogran-dark-border">
-                <div className="w-12 h-12 rounded-full bg-mogran-dark-elevated border-2 border-mogran-accent/30 flex items-center justify-center flex-shrink-0">
-                  <IconBuildingBank size={24} className="text-mogran-accent" />
+              <div className="flex items-center gap-3 pb-4 border-b border-mogran-border">
+                <div className="w-12 h-12 rounded-full bg-mogran-tertiary border-2 border-mogran-primary/30 flex items-center justify-center flex-shrink-0">
+                  <IconBuildingBank size={24} className="text-mogran-primary" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-mogran-dark-text">{(item as BankItem).bank}</h4>
-                  <p className="text-sm text-mogran-dark-text-secondary">{item.holder}</p>
+                  <h4 className="text-lg font-bold text-mogran-secondary">{(item as BankItem).bank}</h4>
+                  <p className="text-sm text-mogran-neutral">{item.holder}</p>
                 </div>
               </div>
 
               <div className="space-y-3">
-                <div className="bg-mogran-dark-elevated/40 rounded-xl p-4 border border-mogran-dark-border">
+                <div className="bg-mogran-tertiary/40 rounded-xl p-4 border border-mogran-border">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-medium text-mogran-dark-text-muted uppercase tracking-wider">Cuenta Soles</span>
+                    <span className="text-xs font-medium text-mogran-neutral/60 uppercase tracking-wider">Cuenta Soles</span>
                     <CopyButton text={(item as BankItem).account} />
                   </div>
-                  <p className="text-base font-mono font-semibold text-mogran-dark-text tracking-wider">{(item as BankItem).account}</p>
+                  <p className="text-base font-mono font-semibold text-mogran-secondary tracking-wider">{(item as BankItem).account}</p>
                 </div>
 
-                <div className="bg-mogran-dark-elevated/40 rounded-xl p-4 border border-mogran-dark-border">
+                <div className="bg-mogran-tertiary/40 rounded-xl p-4 border border-mogran-border">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-medium text-mogran-dark-text-muted uppercase tracking-wider">CCI</span>
+                    <span className="text-xs font-medium text-mogran-neutral/60 uppercase tracking-wider">CCI</span>
                     <CopyButton text={(item as BankItem).cci} />
                   </div>
-                  <p className="text-base font-mono font-semibold text-mogran-dark-text tracking-wider">{(item as BankItem).cci}</p>
+                  <p className="text-base font-mono font-semibold text-mogran-secondary tracking-wider">{(item as BankItem).cci}</p>
                 </div>
               </div>
             </div>
@@ -150,16 +150,16 @@ export function PaymentSection() {
   });
 
   return (
-    <section className="bg-mogran-dark-base section border-t border-mogran-dark-border/50" aria-labelledby="payment-title">
+    <section className="bg-mogran-tertiary section border-t border-mogran-border/50" aria-labelledby="payment-title">
       <div className="container-section">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2
             id="payment-title"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-mogran-dark-text mb-6 text-balance"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-mogran-secondary mb-6 text-balance"
           >
-            ¿Cómo puedo <span className="text-mogran-accent">pagar</span>?
+            ¿Cómo puedo <span className="text-mogran-primary">pagar</span>?
           </h2>
-          <p className="text-lg text-mogran-dark-text-secondary leading-relaxed">
+          <p className="text-lg text-mogran-neutral leading-relaxed">
             Elige el método que más te acomode. Todos los datos están verificados y listos para tu transferencia.
           </p>
         </div>
@@ -172,13 +172,13 @@ export function PaymentSection() {
         </div>
 
         <div className="mt-10 text-center">
-          <p className="text-sm text-mogran-dark-text-muted">
+          <p className="text-sm text-mogran-neutral/60">
             ¿Tienes alguna duda? Escríbenos al{' '}
             <a
               href="https://wa.me/51943695799?text=Hola%20Mogran%2C%20tengo%20una%20consulta%20sobre%20los%20m%C3%A9todos%20de%20pago"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-mogran-accent hover:text-mogran-cyan underline underline-offset-2 transition-colors"
+              className="text-mogran-primary hover:text-mogran-secondary underline underline-offset-2 transition-colors"
             >
               WhatsApp
             </a>
