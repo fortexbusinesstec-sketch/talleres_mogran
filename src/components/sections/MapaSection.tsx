@@ -21,17 +21,17 @@ export function MapaSection() {
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2
           id="mapa-title"
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-mogran-dark-text mb-6 text-balance"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
         >
-          Nuestra <span className="text-mogran-accent">ubicación</span>
+          Nuestra <span className="text-mogran-primary">ubicación</span>
         </h2>
-        <p className="text-lg text-mogran-dark-text-secondary leading-relaxed">
+        <p className="text-lg text-white/70 leading-relaxed">
           Visítanos en nuestro local. Coordinamos la visita para recibirte de la mejor manera.
         </p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8 items-stretch mb-10">
-        <div className="relative rounded-2xl overflow-hidden border border-mogran-accent/20 shadow-xl bg-mogran-dark-elevated">
+        <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-white/5">
           <VideoPlayer
             src={getVideo('talleresubicacion').source}
             alt="Video de la ubicación de Talleres Mogran"
@@ -42,7 +42,7 @@ export function MapaSection() {
           />
         </div>
 
-        <div className="relative rounded-2xl overflow-hidden border border-mogran-accent/20 shadow-xl bg-mogran-dark-elevated min-h-[400px]">
+        <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-white/5 min-h-[400px]">
           <iframe
             src={`https://www.openstreetmap.org/export/embed.html?bbox=-77.0420%2C-12.0805%2C-77.0340%2C-12.0755&layer=mapnik&marker=${ubicacion.lat}%2C${ubicacion.lon}`}
             width="100%"
@@ -54,16 +54,16 @@ export function MapaSection() {
             title="Mapa de ubicación - Talleres Mogran"
           />
 
-          <div className="absolute top-3 left-3 right-3 z-10 bg-mogran-dark-base/90 backdrop-blur-sm rounded-xl border border-mogran-dark-border p-4 shadow-lg">
+          <div className="absolute top-3 left-3 right-3 z-10 bg-mogran-secondary/90 backdrop-blur-sm rounded-xl border border-white/10 p-4 shadow-lg">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-mogran-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <IconMapPin size={20} className="text-mogran-accent" />
+              <div className="w-10 h-10 rounded-full bg-mogran-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <IconMapPin size={20} className="text-mogran-primary" />
               </div>
               <div className="space-y-1">
-                <p className="text-sm font-bold text-mogran-dark-text">{ubicacion.distrito}</p>
-                <p className="text-xs text-mogran-dark-text-secondary">{ubicacion.direccion}</p>
-                <p className="text-xs text-mogran-dark-text-muted">{ubicacion.referencia}</p>
-                <p className="text-xs text-mogran-dark-text-muted">{ubicacion.ciudad}</p>
+                <p className="text-sm font-bold text-white">{ubicacion.distrito}</p>
+                <p className="text-xs text-white/70">{ubicacion.direccion}</p>
+                <p className="text-xs text-white/40">{ubicacion.referencia}</p>
+                <p className="text-xs text-white/40">{ubicacion.ciudad}</p>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@ export function MapaSection() {
               href={ubicacion.osmLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-1.5 bg-mogran-dark-base/90 backdrop-blur-sm text-mogran-dark-text text-xs px-3 py-2 rounded-lg border border-mogran-dark-border hover:bg-mogran-dark-surface transition-colors"
+              className="flex-1 flex items-center justify-center gap-1.5 bg-mogran-secondary/90 backdrop-blur-sm text-white text-xs px-3 py-2 rounded-lg border border-white/10 hover:bg-mogran-secondary transition-colors"
             >
               <IconExternalLink size={14} strokeWidth={2} />
               Ver mapa completo
@@ -82,7 +82,7 @@ export function MapaSection() {
               href={ubicacion.gmapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-1.5 bg-mogran-accent/90 backdrop-blur-sm text-mogran-dark-base text-xs px-3 py-2 rounded-lg border border-mogran-accent/30 hover:bg-mogran-accent transition-colors font-semibold"
+              className="flex-1 flex items-center justify-center gap-1.5 bg-mogran-primary/90 backdrop-blur-sm text-white text-xs px-3 py-2 rounded-lg border border-mogran-primary/30 hover:bg-mogran-primary transition-colors font-semibold"
             >
               <IconRoute size={14} strokeWidth={2} />
               Cómo llegar
@@ -93,18 +93,18 @@ export function MapaSection() {
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center mb-20">
         <div className="flex items-center gap-2">
-          <IconBuilding size={16} className="text-mogran-accent flex-shrink-0" />
-          <span className="text-sm text-mogran-dark-text-secondary">
-            <strong className="text-mogran-dark-text">Distrito:</strong> {ubicacion.distrito}
+          <IconBuilding size={16} className="text-mogran-primary flex-shrink-0" />
+          <span className="text-sm text-white/70">
+            <strong className="text-white">Distrito:</strong> {ubicacion.distrito}
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <IconMapPin size={16} className="text-mogran-accent flex-shrink-0" />
-          <span className="text-sm text-mogran-dark-text-secondary">
-            <strong className="text-mogran-dark-text">Dirección:</strong> {ubicacion.direccion}
+          <IconMapPin size={16} className="text-mogran-primary flex-shrink-0" />
+          <span className="text-sm text-white/70">
+            <strong className="text-white">Dirección:</strong> {ubicacion.direccion}
           </span>
         </div>
-        <span className="text-xs text-mogran-dark-text-muted">Visitas previa coordinación</span>
+        <span className="text-xs text-white/40">Visitas previa coordinación</span>
       </div>
     </>
   );
