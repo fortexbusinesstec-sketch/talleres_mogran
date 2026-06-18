@@ -1,18 +1,22 @@
 import type { Metadata } from 'next';
-import { Inter, Montserrat } from 'next/font/google';
+import { Fredoka } from 'next/font/google';
 import { SchemaOrg } from '@/components/seo/SchemaOrg';
 import { CourseAudience, FAQItem, Professor } from '@/types';
 import './globals.css';
 
-const inter = Inter({
-  variable: '--font-inter',
+const fredoka = Fredoka({
+  variable: '--font-sans',
   subsets: ['latin'],
+  weight: ['400', '500', '600'],
   display: 'swap',
 });
 
-const montserrat = Montserrat({
-  variable: '--font-montserrat',
+// Fredoka One is deprecated/merged into Fredoka (weight 700) in Google Fonts.
+// We reuse the same Fredoka instance with weight 700 as the heading variable.
+const fredokaHeading = Fredoka({
+  variable: '--font-heading',
   subsets: ['latin'],
+  weight: ['600', '700'],
   display: 'swap',
 });
 
@@ -163,7 +167,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${montserrat.variable} h-full antialiased`}>
+    <html lang="es" className={`${fredoka.variable} ${fredokaHeading.variable} h-full antialiased`}>
       <head>
         <SchemaOrg
           courses={audiences}
@@ -171,7 +175,7 @@ export default function RootLayout({
           professor={professor}
         />
       </head>
-      <body className="flex min-h-full flex-col bg-mogran-dark-base text-mogran-dark-text">
+      <body className="flex min-h-full flex-col bg-white text-mogran-neutral">
         {children}
       </body>
     </html>
