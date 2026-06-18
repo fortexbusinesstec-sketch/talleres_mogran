@@ -96,11 +96,11 @@ export function AudienceSection() {
       <TabPanel>
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-mogran-dark-text mb-2">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
               Oratoria para {audience.label}
             </h3>
-            <p className="text-mogran-dark-text-muted mb-6">{audience.edad}</p>
-            <p className="text-lg text-mogran-dark-text-secondary leading-relaxed mb-6">
+            <p className="text-white/40 mb-6">{audience.edad}</p>
+            <p className="text-lg text-white/70 leading-relaxed mb-6">
               {audience.descripcion}
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
@@ -119,14 +119,14 @@ export function AudienceSection() {
             </Button>
           </div>
 
-          <div className="bg-mogran-dark-surface/80 rounded-2xl border border-mogran-dark-border p-6 min-h-[260px] flex flex-col justify-center">
+          <div className="bg-white/5 rounded-2xl border border-white/10 p-6 min-h-[260px] flex flex-col justify-center">
             <ul className="space-y-3">
               {audience.benefits.map((b, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-mogran-accent/10 flex items-center justify-center mt-0.5">
-                    <b.icon size={14} className="text-mogran-accent" />
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-mogran-primary/10 flex items-center justify-center mt-0.5">
+                    <b.icon size={14} className="text-mogran-primary" />
                   </span>
-                  <span className="text-sm text-mogran-dark-text-secondary leading-snug">
+                  <span className="text-sm text-white/70 leading-snug">
                     {b.text}
                   </span>
                 </li>
@@ -141,18 +141,18 @@ export function AudienceSection() {
   return (
     <section
       id="audience"
-      className="bg-[#0a1e5c] section"
+      className="bg-mogran-secondary section"
       aria-labelledby="audience-title"
     >
       <div className="container-section">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2
             id="audience-title"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-mogran-dark-text mb-6 text-balance"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
           >
             Cursos diseñados para cada etapa de la vida
           </h2>
-          <p className="text-lg text-mogran-dark-text-secondary leading-relaxed">
+          <p className="text-lg text-white/70 leading-relaxed">
             Cada edad tiene sus propios desafíos al hablar en público. Por eso adaptamos el método al
             momento que estás viviendo.
           </p>
