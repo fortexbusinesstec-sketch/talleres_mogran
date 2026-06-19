@@ -11,8 +11,20 @@
 
   --font-sans: "Fredoka", system-ui, sans-serif;
   --font-heading: "Fredoka", system-ui, sans-serif;
-  --spacing-section: 6rem;
-  --spacing-section-sm: 4rem;
+  --spacing-section: 4.5rem;
+  --spacing-section-sm: 3rem;
+
+  --animate-marquee: marquee 22s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 28s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
 }
 
 :root {

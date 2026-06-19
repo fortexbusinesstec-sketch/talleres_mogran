@@ -1,0 +1,20 @@
+timestamp=2026-06-18T06:18:55.049Z level=INFO run=9898f05c message="creating instance" directory=/Users/estebanmacbook/Document/Code/NextJS/talleres_mogran
+timestamp=2026-06-18T06:18:55.051Z level=INFO run=9898f05c message=fromDirectory directory=/Users/estebanmacbook/Document/Code/NextJS/talleres_mogran
+timestamp=2026-06-18T06:18:55.086Z level=INFO run=9898f05c message=bootstrapping directory=/Users/estebanmacbook/Document/Code/NextJS/talleres_mogran
+timestamp=2026-06-18T06:18:55.091Z level=INFO run=9898f05c message=loading path=/Users/estebanmacbook/.config/opencode/config.json
+timestamp=2026-06-18T06:18:55.091Z level=INFO run=9898f05c message=loading path=/Users/estebanmacbook/.config/opencode/opencode.json
+timestamp=2026-06-18T06:18:55.098Z level=INFO run=9898f05c message=loading path=/Users/estebanmacbook/.config/opencode/opencode.jsonc
+timestamp=2026-06-18T06:18:55.108Z level=INFO run=9898f05c message=loading path=/Users/estebanmacbook/Document/Code/NextJS/talleres_mogran/opencode.json
+timestamp=2026-06-18T06:18:55.125Z level=DEBUG run=9898f05c message="loading config from /Users/estebanmacbook/Document/Code/NextJS/talleres_mogran/.opencode/opencode.json"
+timestamp=2026-06-18T06:18:55.125Z level=INFO run=9898f05c message=loading path=/Users/estebanmacbook/Document/Code/NextJS/talleres_mogran/.opencode/opencode.json
+timestamp=2026-06-18T06:18:55.126Z level=DEBUG run=9898f05c message="loading config from /Users/estebanmacbook/Document/Code/NextJS/talleres_mogran/.opencode/opencode.jsonc"
+timestamp=2026-06-18T06:18:55.126Z level=INFO run=9898f05c message=loading path=/Users/estebanmacbook/Document/Code/NextJS/talleres_mogran/.opencode/opencode.jsonc
+timestamp=2026-06-18T06:18:55.127Z level=DEBUG run=9898f05c message="loading config from /Users/estebanmacbook/.opencode/opencode.json"
+timestamp=2026-06-18T06:18:55.127Z level=INFO run=9898f05c message=loading path=/Users/estebanmacbook/.opencode/opencode.json
+timestamp=2026-06-18T06:18:55.128Z level=DEBUG run=9898f05c message="loading config from /Users/estebanmacbook/.opencode/opencode.jsonc"
+timestamp=2026-06-18T06:18:55.128Z level=INFO run=9898f05c message=loading path=/Users/estebanmacbook/.opencode/opencode.jsonc
+timestamp=2026-06-18T06:18:56.075Z level=INFO run=9898f05c message="Warp plugin initialized"
+timestamp=2026-06-18T06:18:57.252Z level=INFO run=9898f05c message="Plugin v2.0.0 loaded [edit, warpgrep, warpgrep-github, compact]"
+timestamp=2026-06-18T06:18:57.307Z level=INFO run=9898f05c message="all LSPs are disabled"
+timestamp=2026-06-18T06:18:57.308Z level=INFO run=9898f05c message="all formatters are disabled"
+timestamp=2026-06-18T06:18:57.308Z level=INFO run=9898f05c message=init

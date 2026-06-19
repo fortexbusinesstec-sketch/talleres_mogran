@@ -1,83 +1,66 @@
 'use client';
 
-import { motion } from 'motion/react';
-import { IconBrandTiktok, IconBrandInstagram, IconBrandFacebook, IconArrowDown } from '@tabler/icons-react';
-
-const socials = [
-  {
-    name: 'TikTok',
-    href: 'https://www.tiktok.com/@oratoriamogran',
-    Icon: IconBrandTiktok,
-    color: 'hover:text-black',
-  },
-  {
-    name: 'Instagram',
-    href: 'https://www.instagram.com/talleresmogran',
-    Icon: IconBrandInstagram,
-    color: 'hover:text-[#E4405F]',
-  },
-  {
-    name: 'Facebook',
-    href: 'https://www.facebook.com/talleresmogran',
-    Icon: IconBrandFacebook,
-    color: 'hover:text-[#1877F2]',
-  },
+const row1 = [
+  'Locución', 'Habla con Confianza', '25 Años de Trayectoria',
+  'Artes Escénicas', 'Vence la Timidez', 'Lima · Perú',
+  'Coaching Motivacional', 'Presencial y Virtual', 'Habilidades Sociales',
 ];
+
+const row2 = [
+  'Oratoria Práctica', '500+ Alumnos', 'Expresión Corporal',
+  'Grupos Reducidos', 'Oratoria Digital', 'Método Integral',
+  'Niños · Jóvenes · Adultos', 'Clases en Vivo', 'Certificado',
+];
+
+// Outlined (stroke) text — alternates with filled words for an editorial marquee.
+const outlineStyle = {
+  WebkitTextStroke: '1px rgba(255,255,255,0.35)',
+  color: 'transparent',
+} as const;
+
+const Star = () => (
+  <span
+    className="mx-6 md:mx-8 text-mogran-primary text-[0.5em] align-middle flex-shrink-0"
+    aria-hidden="true"
+  >
+    ✦
+  </span>
+);
 
 export function RedSection() {
   return (
-    <section className="bg-mogran-primary py-10 md:py-14" aria-labelledby="redes-title">
-      <div className="container-section">
-        <div className="flex flex-col items-center gap-6 text-center">
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-              Conéctate con nosotros
-            </p>
-            <h2
-              id="redes-title"
-              className="text-2xl md:text-3xl font-extrabold text-white"
+    <div
+      className="bg-mogran-secondary overflow-hidden select-none border-y border-white/10 py-7 md:py-9 space-y-3 md:space-y-4"
+      aria-hidden="true"
+    >
+      {/* Row 1 — large, alternating filled / outlined */}
+      <div className="flex animate-marquee whitespace-nowrap">
+        {[...row1, ...row1].map((item, i) => (
+          <span key={i} className="inline-flex items-center flex-shrink-0">
+            <span
+              className="font-bold uppercase tracking-tight text-[clamp(1.5rem,3.4vw,2.6rem)] leading-none text-white"
+              style={i % 2 === 1 ? outlineStyle : undefined}
             >
-              Síguenos en{' '}
-              <span className="underline decoration-2 underline-offset-4 decoration-white/30">
-                redes sociales
-              </span>
-            </h2>
-            <p className="text-sm md:text-base text-white/80 max-w-lg mx-auto">
-              Descubre nuestras experiencias, talleres y contenido exclusivo. Síguenos y
-              vuelve para conocer más sobre Talleres Mogran.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-4 md:gap-6">
-            {socials.map((social) => (
-              <motion.a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.15, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-                className={`group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-colors duration-300 ${social.color}`}
-                aria-label={`Síguenos en ${social.name}`}
-              >
-                <social.Icon
-                  size={26}
-                  className="text-white transition-colors duration-300 group-hover:scale-110"
-                  strokeWidth={1.5}
-                />
-              </motion.a>
-            ))}
-          </div>
-
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="mt-2"
-          >
-            <IconArrowDown size={20} className="text-white/60" strokeWidth={2} />
-          </motion.div>
-        </div>
+              {item}
+            </span>
+            <Star />
+          </span>
+        ))}
       </div>
-    </section>
+
+      {/* Row 2 — smaller, dimmer, reverse direction */}
+      <div className="flex animate-marquee-reverse whitespace-nowrap">
+        {[...row2, ...row2].map((item, i) => (
+          <span key={i} className="inline-flex items-center flex-shrink-0">
+            <span
+              className="font-semibold uppercase tracking-[0.15em] text-[clamp(0.7rem,1.3vw,0.95rem)] leading-none text-white/40"
+            >
+              {item}
+            </span>
+            <span className="mx-5 md:mx-7 w-1 h-1 rounded-full bg-mogran-primary/60 flex-shrink-0" aria-hidden="true" />
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }

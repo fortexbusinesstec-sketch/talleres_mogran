@@ -8,7 +8,7 @@ type Size = 'sm' | 'md' | 'lg';
 
 const variantStyles: Record<Variant, string> = {
   primary: 'bg-mogran-primary text-white hover:bg-[#D6103A] shadow-lg shadow-mogran-primary/20',
-  secondary: 'border-2 border-mogran-secondary text-mogran-secondary hover:bg-mogran-secondary hover:text-white',
+  secondary: 'border-2 border-white/30 text-white hover:border-white/60 hover:bg-white/10',
   ghost: 'text-mogran-neutral hover:text-mogran-secondary hover:bg-mogran-tertiary',
 };
 

@@ -1,237 +1,196 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   IconMicrophone, IconTheater,
   IconBodyScan, IconPresentationAnalytics,
-  IconBulb, IconHeartHandshake, IconStar,
+  IconBulb, IconHeartHandshake,
 } from '@tabler/icons-react';
 
-const outerTechniques = [
-  { label: 'Locución', Icon: IconMicrophone },
-  { label: 'Artes\nEscénicas', Icon: IconTheater },
-  { label: 'Expresión\nCorporal', Icon: IconBodyScan },
-  { label: 'Oratoria\nDigital', Icon: IconPresentationAnalytics },
-  { label: 'Coaching\nMotivacional', Icon: IconBulb },
-  { label: 'Habilidades\nSociales', Icon: IconHeartHandshake },
+const techniques = [
+  {
+    num: '01',
+    label: 'Locución',
+    Icon: IconMicrophone,
+    desc: 'Proyecta una voz clara, modulada y con autoridad en cada conversación.',
+    panelBg: 'bg-mogran-primary',
+    panelText: 'text-white',
+    iconBg: 'bg-white/10',
+  },
+  {
+    num: '02',
+    label: 'Artes Escénicas',
+    Icon: IconTheater,
+    desc: 'Presencia escénica y manejo del espacio con confianza total.',
+    panelBg: 'bg-mogran-tertiary',
+    panelText: 'text-mogran-secondary',
+    iconBg: 'bg-mogran-secondary/10',
+  },
+  {
+    num: '03',
+    label: 'Expresión Corporal',
+    Icon: IconBodyScan,
+    desc: 'Domina la postura, el gesto y la mirada para comunicar sin palabras.',
+    panelBg: 'bg-mogran-primary',
+    panelText: 'text-white',
+    iconBg: 'bg-white/10',
+  },
+  {
+    num: '04',
+    label: 'Oratoria Digital',
+    Icon: IconPresentationAnalytics,
+    desc: 'Domina presentaciones virtuales, cámara y escenarios digitales con impacto real.',
+    panelBg: 'bg-mogran-tertiary',
+    panelText: 'text-mogran-secondary',
+    iconBg: 'bg-mogran-secondary/10',
+  },
+  {
+    num: '05',
+    label: 'Coaching Motivacional',
+    Icon: IconBulb,
+    desc: 'Desbloquea tu potencial y construye la mentalidad ganadora.',
+    panelBg: 'bg-mogran-primary',
+    panelText: 'text-white',
+    iconBg: 'bg-white/10',
+  },
+  {
+    num: '06',
+    label: 'Habilidades Sociales',
+    Icon: IconHeartHandshake,
+    desc: 'Conecta genuinamente y lidera conversaciones con magnetismo natural.',
+    panelBg: 'bg-mogran-tertiary',
+    panelText: 'text-mogran-secondary',
+    iconBg: 'bg-mogran-secondary/10',
+  },
 ] as const;
 
-const R = 38;
-const cx = 50;
-const cy = 50;
-
-const outerPositions = Array.from({ length: 6 }, (_, i) => {
-  const angle = (i * 60 - 90) * (Math.PI / 180);
-  return {
-    x: +(cx + R * Math.cos(angle)).toFixed(1),
-    y: +(cy + R * Math.sin(angle)).toFixed(1),
-  };
-});
-
-const spokeConnections = outerPositions.map((p) => ({ x2: p.x, y2: p.y }));
-
-function ringPath(a: { x: number; y: number }, b: { x: number; y: number }) {
-  const mx = (a.x + b.x) / 2;
-  const my = (a.y + b.y) / 2;
-  const dx = mx - cx;
-  const dy = my - cy;
-  const cpx = +(cx + dx * 1.6).toFixed(1);
-  const cpy = +(cy + dy * 1.6).toFixed(1);
-  return `M${a.x},${a.y} Q${cpx},${cpy} ${b.x},${b.y}`;
-}
-
-const curvedRingPaths = Array.from({ length: 6 }, (_, i) =>
-  ringPath(outerPositions[i], outerPositions[(i + 1) % 6]),
-);
-
 export function ProblemSection() {
-  const [animStep, setAnimStep] = useState(-1);
-  const phaseTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-
-  useEffect(() => {
-    const durations = [600, 500, 500, 500, 500, 500, 500, 500, 2200];
-
-    phaseTimer.current = setTimeout(() => {
-      setAnimStep((prev) => (prev + 1) % durations.length);
-    }, animStep === -1 ? 800 : durations[animStep]);
-
-    return () => clearTimeout(phaseTimer.current);
-  }, [animStep]);
-
-  useEffect(() => {
-    const t = setTimeout(() => setAnimStep(0), 400);
-    return () => clearTimeout(t);
-  }, []);
-
-  const isNodeLit = (idx: number) => animStep >= idx;
-  const isRingLit = (idx: number) => animStep >= idx + 1;
-  const centerLit = animStep >= 0;
+  const [active, setActive] = useState(0);
+  const t = techniques[active];
 
   return (
-    <section id="problem" className="bg-mogran-secondary section border-t border-white/10" aria-labelledby="problem-title">
-      <div className="container-section">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2
-            id="problem-title"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance"
-          >
-            Competencias que{' '}
-            <span className="text-mogran-primary">desarrollarás</span>
-          </h2>
-          <p className="text-lg text-white/70 leading-relaxed">
-            Un enfoque integral que abarca todas las áreas necesarias para comunicarte con confianza y
-            seguridad en cualquier situación.
-          </p>
+    <section id="problem" className="bg-mogran-secondary" aria-labelledby="problem-title">
+
+      {/* Header — giant editorial typography */}
+      <div className="container-section pt-20 pb-12">
+        <motion.p
+          className="text-xs font-mono uppercase tracking-[0.35em] text-mogran-primary mb-8"
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          06 disciplinas · método integral
+        </motion.p>
+        <motion.h2
+          id="problem-title"
+          className="text-[clamp(2.8rem,8.5vw,7rem)] font-bold text-white leading-[0.92] tracking-tight"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Las habilidades<br />
+          <em className="text-mogran-primary not-italic">que desarrollarás</em>
+        </motion.h2>
+      </div>
+
+      {/* Numbered list + sticky panel */}
+      <div className="lg:grid lg:grid-cols-[1fr_420px] border-t border-white/10">
+
+        {/* LEFT — interactive numbered list */}
+        <div>
+          {techniques.map((item, i) => (
+            <div
+              key={item.num}
+              onMouseEnter={() => setActive(i)}
+              onClick={() => setActive(i)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setActive(i)}
+              aria-pressed={active === i}
+              className={`group relative flex items-center gap-6 md:gap-10 px-8 md:px-16 py-10 md:py-14 border-b border-white/10 cursor-default transition-colors duration-300 outline-none focus-visible:bg-white/5 ${
+                active === i ? 'bg-white/[0.04]' : 'hover:bg-white/[0.02]'
+              }`}
+            >
+              {/* Left accent bar */}
+              <motion.div
+                className="absolute left-0 top-0 bottom-0 w-[3px] bg-mogran-primary origin-top"
+                animate={{ scaleY: active === i ? 1 : 0 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              />
+
+              {/* Number */}
+              <span
+                className={`font-mono text-xs font-bold flex-shrink-0 w-7 transition-colors duration-300 ${
+                  active === i ? 'text-mogran-primary' : 'text-white/15'
+                }`}
+              >
+                {item.num}
+              </span>
+
+              {/* Technique name */}
+              <h3
+                className={`text-2xl sm:text-3xl md:text-4xl xl:text-[2.75rem] font-bold flex-1 leading-none transition-colors duration-300 ${
+                  active === i ? 'text-white' : 'text-white/30'
+                }`}
+              >
+                {item.label}
+              </h3>
+
+              {/* Arrow indicator */}
+              <motion.span
+                className="text-mogran-primary flex-shrink-0 text-xl"
+                animate={{ opacity: active === i ? 1 : 0, x: active === i ? 0 : -10 }}
+                transition={{ duration: 0.2 }}
+                aria-hidden="true"
+              >
+                →
+              </motion.span>
+            </div>
+          ))}
         </div>
 
-        <div className="flex justify-center">
-          <div className="w-full max-w-xl">
-            <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
-              <div className="relative w-full aspect-square">
-                {/* Central glow */}
-                <motion.div
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(248,20,67,0.1) 0%, transparent 70%)' }}
-                  animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.7, 0.3] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                />
-
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-                  {/* Spokes (center → outer) */}
-                  {spokeConnections.map((s, i) => (
-                    <motion.line
-                      key={`spoke-${i}`}
-                      x1={cx} y1={cy} x2={s.x2} y2={s.y2}
-                      stroke="#F81443"
-                      strokeWidth={1.5}
-                      strokeLinecap="round"
-                      strokeDasharray={isNodeLit(i) ? 'none' : '2 6'}
-                      initial={{ pathLength: 0 }}
-                      animate={{
-                        pathLength: 1,
-                        strokeOpacity: isNodeLit(i) ? 0.45 : 0.08,
-                        strokeDashoffset: isNodeLit(i) ? 0 : [-8, 0],
-                      }}
-                      transition={{
-                        pathLength: { duration: 0.8, delay: 0.05 * i },
-                        strokeOpacity: { duration: 0.5, ease: 'easeInOut' },
-                        strokeDashoffset: { duration: 1.2, repeat: Infinity, ease: 'linear' },
-                      }}
-                    />
-                  ))}
-
-                  {/* Outer ring connections (curved) */}
-                  {curvedRingPaths.map((d, i) => (
-                    <motion.path
-                      key={`ring-${i}`}
-                      d={d}
-                      stroke="#F81443"
-                      strokeWidth={1.2}
-                      strokeLinecap="round"
-                      strokeDasharray={isRingLit(i) ? 'none' : '2 6'}
-                      fill="none"
-                      initial={{ pathLength: 0 }}
-                      animate={{
-                        pathLength: 1,
-                        strokeOpacity: isRingLit(i) ? 0.4 : 0.05,
-                        strokeDashoffset: isRingLit(i) ? 0 : [-8, 0],
-                      }}
-                      transition={{
-                        pathLength: { duration: 0.6, delay: 0.03 * i },
-                        strokeOpacity: { duration: 0.5, ease: 'easeInOut' },
-                        strokeDashoffset: { duration: 1.2, repeat: Infinity, ease: 'linear' },
-                      }}
-                    />
-                  ))}
-                </svg>
-
-                {/* Outer nodes */}
-                {outerTechniques.map((t, i) => {
-                  const p = outerPositions[i];
-                  const lit = isNodeLit(i);
-                  const floatDur = 3.5 + i * 0.3;
-
-                  return (
-                    <div
-                      key={t.label}
-                      className="absolute flex flex-col items-center"
-                      style={{ left: `${p.x}%`, top: `${p.y}%`, transform: 'translate(-50%, -50%)' }}
-                    >
-                      <motion.div
-                        animate={{ y: [0, -3, 0] }}
-                        transition={{ duration: floatDur, repeat: Infinity, ease: 'easeInOut' }}
-                        className="flex flex-col items-center gap-1"
-                      >
-                        <motion.div
-                          animate={{
-                            scale: lit ? 1 : 0.85,
-                            borderColor: lit ? 'rgba(248,20,67,0.6)' : 'rgba(255,255,255,0.1)',
-                            boxShadow: lit
-                              ? '0 0 16px rgba(248,20,67,0.25), 0 0 32px rgba(248,20,67,0.1)'
-                              : '0 0 0px rgba(248,20,67,0)',
-                          }}
-                          transition={{ duration: 0.5, ease: 'easeOut' }}
-                          className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/5 border-2 flex items-center justify-center shadow-lg"
-                        >
-                          <t.Icon
-                            size={18}
-                            className={lit ? 'text-mogran-primary' : 'text-white/30'}
-                          />
-                        </motion.div>
-
-                        <motion.span
-                          animate={{ color: lit ? 'rgb(248,250,252)' : 'rgba(255,255,255,0.4)' }}
-                          transition={{ duration: 0.4 }}
-                          className="text-[clamp(9px,2.5vw,12px)] font-semibold text-center leading-tight whitespace-pre-line"
-                        >
-                          {t.label}
-                        </motion.span>
-                      </motion.div>
-                    </div>
-                  );
-                })}
-
-                {/* Center node: Talleres Mogran */}
-                <div
-                  className="absolute flex flex-col items-center"
-                  style={{ left: `${cx}%`, top: `${cy}%`, transform: 'translate(-50%, -50%)' }}
-                >
+        {/* RIGHT — sticky visual panel (desktop only) */}
+        <div className="hidden lg:block">
+          <div className="sticky top-0 h-screen">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                className={`h-full flex flex-col items-center justify-center gap-6 p-12 ${t.panelBg}`}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.03 }}
+                transition={{ duration: 0.22, ease: 'easeOut' }}
+              >
+                <div className={`${t.panelText} flex flex-col items-center gap-6 text-center`}>
                   <motion.div
-                    animate={{ scale: centerLit ? [1, 1.05, 1] : [0.9, 0.95, 0.9] }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                    className="flex flex-col items-center gap-1"
+                    className={`w-28 h-28 rounded-3xl ${t.iconBg} flex items-center justify-center`}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
                   >
-                    <motion.div
-                      animate={{
-                        borderColor: centerLit
-                          ? 'rgba(248,20,67,0.8)'
-                          : 'rgba(248,20,67,0.3)',
-                        boxShadow: centerLit
-                          ? '0 0 24px rgba(248,20,67,0.35), 0 0 48px rgba(248,20,67,0.15)'
-                          : '0 0 8px rgba(248,20,67,0.1)',
-                      }}
-                      transition={{ duration: 0.6 }}
-                      className="w-[60px] h-[60px] md:w-[80px] md:h-[80px] rounded-full bg-white/5 border-[2.5px] flex items-center justify-center shadow-lg"
-                    >
-                      <IconStar size={24} className="text-mogran-primary" />
-                    </motion.div>
+                    <t.Icon size={56} strokeWidth={1.1} />
+                  </motion.div>
 
-                    <motion.span
-                      animate={{ color: centerLit ? 'rgb(248,20,67)' : 'rgba(255,255,255,0.4)' }}
-                      transition={{ duration: 0.4 }}
-                      className="text-[clamp(10px,2.5vw,13px)] font-extrabold text-center leading-tight tracking-wider"
-                    >
-                      TALLERES
-                      <br />
-                      MOGRAN
-                    </motion.span>
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, delay: 0.12 }}
+                  >
+                    <p className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mb-3">
+                      {t.num} / 06
+                    </p>
+                    <h4 className="text-3xl font-bold mb-4 leading-tight">{t.label}</h4>
+                    <p className="text-sm opacity-60 leading-relaxed max-w-[260px]">{t.desc}</p>
                   </motion.div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
+
       </div>
     </section>
   );
